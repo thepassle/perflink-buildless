@@ -78,15 +78,17 @@ export default () => {
 
   return html`
     <main className="app">
-      <${Tests}
-        before=${before}
-        setBefore=${setBefore}
-        tests=${tests}
-        setTests=${setTests}
-        started=${started}
-        setStarted=${setStarted}
-      />
-      <${Results} tests=${tests} />
+    ${!dialog&&html`
+        <${Tests}
+          before=${before}
+          setBefore=${setBefore}
+          tests=${tests}
+          setTests=${setTests}
+          started=${started}
+          setStarted=${setStarted}
+        />
+        <${Results} tests=${tests} />
+      `}
       ${dialog &&
         html`
           <dialog open>
